@@ -5,7 +5,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages={"com.unla.ignaciospring.controllers"})
 public class IgnaciospringApplication {
 
 	public static void main(String[] args) {

@@ -19,9 +19,8 @@ public class HomeController {
 
 	// GET example: SERVER/hello?name=someName
 	@GetMapping("/hello")
-	public ModelAndView helloparams1(
-			@RequestParam(name = "name", required = false, defaultValue = "null") String name) {
-		ModelAndView mV = new ModelAndView("/home/hello");
+	public ModelAndView helloparams1(@RequestParam(name="name", required=false, defaultValue="null") String name) {
+		ModelAndView mV = new ModelAndView("home/hello");
 		mV.addObject("name", name);
 		return mV;
 	}
@@ -29,7 +28,7 @@ public class HomeController {
 	// GET example: SERVER/hello/somename
 	@GetMapping("/hello/{name}")
 	public ModelAndView helloparams2(@PathVariable("name") String name) {
-		ModelAndView mV = new ModelAndView("/home/hello");
+		ModelAndView mV = new ModelAndView("home/hello");
 		mV.addObject("name", name);
 		return mV;
 	}
