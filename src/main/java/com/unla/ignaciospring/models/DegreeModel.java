@@ -1,15 +1,22 @@
 package com.unla.ignaciospring.models;
 
-public class Degree {
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
+
+public class DegreeModel {
 	private int id;
+	
 	private String name;
+	
+	@Size(min=3, max=12)
 	private String institution;
+	
+	@Min(3)
 	private int year;
 
-	public Degree() {
-	}
+	public DegreeModel() {}
 
-	public Degree(int id, String name, String institution, int year) {
+	public DegreeModel(int id, String name, String institution, int year) {
 		this.id = id;
 		this.name = name;
 		this.institution = institution;
