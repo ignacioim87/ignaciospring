@@ -42,7 +42,6 @@ public class UserRole {
 	public UserRole() {}
 
 	public UserRole(int id, User user, String role) {
-		super();
 		this.id = id;
 		this.user = user;
 		this.role = role;

@@ -13,11 +13,12 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-
+import org.springframework.stereotype.Service;
 
 import com.unla.ignaciospring.entities.UserRole;
 import com.unla.ignaciospring.repositories.IUserRepository;
 
+@Service("userService")
 public class UserService implements UserDetailsService {
 
 	@Autowired
@@ -31,10 +32,9 @@ public class UserService implements UserDetailsService {
 	}
 
 	private User buildUser(com.unla.ignaciospring.entities.User user, List<GrantedAuthority> grantedAuthorities) {
-		return new User(user.getUsername(),user.getPassword(),user.isEnabled(),
-				true, true, true, //accountNonExpired, credentialsNonExpired, accountNonLocked,
-				grantedAuthorities);
-													
+		return new User(user.getUsername(), user.getPassword(), user.isEnabled(),
+						true, true, true, //accountNonExpired, credentialsNonExpired, accountNonLocked,
+						grantedAuthorities);												
 	}
 
 	private List<GrantedAuthority> buildGrantedAuthorities(Set<UserRole> userRoles) {
